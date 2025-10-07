@@ -16,7 +16,7 @@ public class MethodExecutionCalculationAspect {
 	Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	// With this advice, we want to measure the time it takes to execute the method.
-	@Around(value = "com.in28minutes.spring.aop.spring_aop.aspect.CommonJoinPointConfig.businessLayerExecution()")
+	@Around(value = "com.in28minutes.spring.aop.spring_aop.aspect.CommonJoinPointConfig.trackTimeAnnotation()")
 	public void around(ProceedingJoinPoint joinPoint) throws Throwable {
 		long startTime = System.currentTimeMillis();
 		joinPoint.proceed();

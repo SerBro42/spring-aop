@@ -3,6 +3,7 @@ package com.in28minutes.spring.aop.spring_aop.business;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.in28minutes.spring.aop.spring_aop.aspect.TrackTime;
 import com.in28minutes.spring.aop.spring_aop.data.Dao2;
 
 @Service
@@ -11,6 +12,7 @@ public class Business2 {
 	@Autowired
 	private Dao2 dao2;
 	
+	@TrackTime
 	public String calculateSomething() {
 		//Business logic
 		return dao2.retrieveSomething();
