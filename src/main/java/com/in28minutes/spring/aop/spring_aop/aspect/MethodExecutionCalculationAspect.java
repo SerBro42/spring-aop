@@ -1,6 +1,5 @@
 package com.in28minutes.spring.aop.spring_aop.aspect;
 
-import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -17,7 +16,7 @@ public class MethodExecutionCalculationAspect {
 	Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	// With this advice, we want to measure the time it takes to execute the method.
-	@Around(value = "execution(* com.in28minutes.spring.aop.spring_aop.business..*.*(..))")
+	@Around(value = "com.in28minutes.spring.aop.spring_aop.aspect.CommonJoinPointConfig.businessLayerExecution()")
 	public void around(ProceedingJoinPoint joinPoint) throws Throwable {
 		long startTime = System.currentTimeMillis();
 		joinPoint.proceed();

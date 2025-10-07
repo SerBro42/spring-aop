@@ -21,7 +21,7 @@ public class UserAccessAspect {
 	
 	//The @Before annotation means that this method takes place BEFORE the actual method is invoked.
 	//Used for example for security checks: access check for the user before executing any of the methods of this application.
-	@Before("execution(* com.in28minutes.spring.aop.spring_aop.business.*.*(..))")
+	@Before("com.in28minutes.spring.aop.spring_aop.aspect.CommonJoinPointConfig.dataLayerExecution()")
 	public void before(JoinPoint joinPoint) {
 		//Shows the entire method that's being intercepted
 		logger.info(" Check for user access ");

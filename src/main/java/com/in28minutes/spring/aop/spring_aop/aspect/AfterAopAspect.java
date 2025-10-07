@@ -18,14 +18,14 @@ public class AfterAopAspect {
 	Logger logger = LoggerFactory.getLogger(this.getClass());
 	
 	//The @After annotation means that this method takes place AFTER the method is invoked, regardless of the result of the execution.
-	@After(value="execution(* com.in28minutes.spring.aop.spring_aop.business.*.*(..))")
+	@After(value = "com.in28minutes.spring.aop.spring_aop.aspect.CommonJoinPointConfig.businessLayerExecution()")
 	public void after(JoinPoint joinPoint) {
 		//Shows the entire method that's being intercepted
 		logger.info("After execution of {}", joinPoint);
 	}
 	
 	//The @AfterReturning annotation means that this method takes place AFTER target method invocation, but only if it's successful.
-	@AfterReturning(value="execution(* com.in28minutes.spring.aop.spring_aop.business.*.*(..))",
+	@AfterReturning(value="com.in28minutes.spring.aop.spring_aop.aspect.CommonJoinPointConfig.businessLayerExecution()",
 			returning="result")
 	public void afterReturning(JoinPoint joinPoint, Object result) {
 		//Shows the entire method that's being intercepted
@@ -33,7 +33,7 @@ public class AfterAopAspect {
 	}
 	
 	//@AfterThrowing is called upon after execution of target method, but only if it returns an exception.
-	@AfterThrowing(value="execution(* com.in28minutes.spring.aop.spring_aop.business.*.*(..))",
+	@AfterThrowing(value="com.in28minutes.spring.aop.spring_aop.aspect.CommonJoinPointConfig.businessLayerExecution()",
 			throwing="exception")
 	public void afterThrowing(JoinPoint joinPoint, Object exception) {
 		//Shows the entire method that's being intercepted
